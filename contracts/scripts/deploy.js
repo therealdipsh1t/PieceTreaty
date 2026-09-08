@@ -56,7 +56,38 @@ async function main() {
     JSON.stringify({ address, chainId: Number(chainId), network, abi: artifact.abi }, null, 2)
   );
   console.log(`Synced ABI to web/src/lib/LegallyMimeNFT.json`);
-  console.log("\nNext: set VITE_NFT_ADDRESS in web/.env and run the dashboard.");
+
+  const Filings = await hre.ethers.getContractFactory("PieceTreatyFilings");
+  const filings = await Filings.deploy(deployer.address, "http://localhost:5173/courthouse/cards/");
+  await filings.waitForDeployment();
+  const filingsAddress = await filings.getAddress();
+  console.log(`PieceTreatyFilings deployed at: ${filingsAddress}`);
+
+  const chase = [
+    [1, "Legally Mime", true, 100],
+    [2, "The Courtroom", true, 250],
+    [3, "Golden Scale", true, 100],
+    [4, "Piece Treaty", true, 50],
+    [5, "Silent Brief", true, 400],
+    [6, "Night Clerk", true, 400],
+  ];
+  for (const [id, name, isChase, cap] of chase) {
+    const tx = await filings.registerCard(id, name, isChase, cap, "");
+    await tx.wait();
+  }
+  console.log(`Registered ${chase.length} chase cards for filing`);
+
+  const filingsArtifact = await hre.artifacts.readArtifact("PieceTreatyFilings");
+  fs.writeFileSync(
+    path.join(webDir, "PieceTreatyFilings.json"),
+    JSON.stringify(
+      { address: filingsAddress, chainId: Number(chainId), network, abi: filingsArtifact.abi },
+      null,
+      2
+    )
+  );
+  console.log(`Synced ABI to web/src/lib/PieceTreatyFilings.json`);
+  console.log("\nNext: set VITE_NFT_ADDRESS in web/.env and run the courthouse (`npm run web:dev`).");
 }
 
 main().catch((err) => {

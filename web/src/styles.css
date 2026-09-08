@@ -28,7 +28,7 @@ body,
 
 body {
   margin: 0;
-  font-family: var(--font-mono);
+  font-family: "Nunito", var(--font-mono), system-ui, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.5;

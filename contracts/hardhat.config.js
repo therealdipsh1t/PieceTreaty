@@ -1,7 +1,11 @@
 require("@nomicfoundation/hardhat-toolbox");
 require("dotenv").config({ path: require("path").resolve(__dirname, "../.env") });
 
-const PRIVATE_KEY = process.env.PRIVATE_KEY || "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const HARDHAT_KEY = "0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80";
+const PRIVATE_KEY =
+  process.env.PRIVATE_KEY && /^0x[0-9a-fA-F]{64}$/.test(process.env.PRIVATE_KEY)
+    ? process.env.PRIVATE_KEY
+    : HARDHAT_KEY;
 const MONAD_TESTNET_RPC = process.env.MONAD_TESTNET_RPC || "https://testnet-rpc.monad.xyz";
 const MONAD_MAINNET_RPC = process.env.MONAD_MAINNET_RPC || "https://rpc.monad.xyz";
 

@@ -125,6 +125,23 @@ On-chain `baseURI` for local testing:
 
 For production, upload `json/` (and `images/`) to IPFS/HTTPS and call `setSeriesBaseURI`.
 
+## Courthouse filing (player demo)
+
+The default web app is no longer a wallet-first mint page. It is a **courthouse**:
+
+1. Email sign-in (no wallet on the door)
+2. Binder of playable cards
+3. **File** a chase card — commons stay in-game
+4. Filed copies are ERC-1155 title deeds (`PieceTreatyFilings`)
+
+```bash
+cd web && npm run dev
+```
+
+Open http://localhost:5173 — any six-digit code lets you into the demo. Owner mint desk: append `#desk`.
+
+`PieceTreatyFilings` maps in-game `cardId` → 1155 supply. The game backend (minter role) files copies a player already owns. Do not mint the whole catalog.
+
 ## Security
 
 - Never commit `.env` or private keys
