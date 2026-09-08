@@ -125,10 +125,6 @@ On-chain `baseURI` for local testing:
 
 For production, upload `json/` (and `images/`) to IPFS/HTTPS and call `setSeriesBaseURI`.
 
-## GitHub note
-
-Your empty `therealdipsh1t/dashboard` repo can host this project, or push this folder as a new repo. `synergy-portal` / `Presale-Dashboard` were left alone — this is a **fresh lean** app as requested.
-
 ## Security
 
 - Never commit `.env` or private keys
