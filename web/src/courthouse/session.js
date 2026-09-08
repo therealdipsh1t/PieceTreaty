@@ -1,11 +1,26 @@
+import { CATALOG } from "./catalog";
+
 const KEY = "piece-treaty-session";
+
+const DEMO_COPIES = [
+  { uid: "PT-200-H1", card: 200, finish: "holographic", tradable: true, filed: false },
+  { uid: "PT-031-F1", card: 31, finish: "foil", tradable: true, filed: false },
+  { uid: "PT-001-S1", card: 1, finish: "standard", tradable: true, filed: false },
+  { uid: "PT-113-F1", card: 113, finish: "foil", tradable: true, filed: false },
+  { uid: "PT-039-S1", card: 39, finish: "standard", tradable: true, filed: false },
+  { uid: "PT-087-H1", card: 87, finish: "holographic", tradable: true, filed: false },
+  { uid: "PT-002-S1", card: 2, finish: "standard", tradable: false, filed: false },
+  { uid: "PT-002-S2", card: 2, finish: "standard", tradable: false, filed: false },
+  { uid: "PT-003-S1", card: 3, finish: "standard", tradable: false, filed: false },
+  { uid: "PT-003-F1", card: 3, finish: "foil", tradable: true, filed: false },
+];
 
 export function loadSession() {
   try {
     const raw = localStorage.getItem(KEY);
     if (!raw) return null;
     const s = JSON.parse(raw);
-    if (!s?.email) return null;
+    if (!s?.email || !Array.isArray(s.copies)) return null;
     return s;
   } catch {
     return null;
@@ -29,27 +44,43 @@ export async function walletForEmail(email) {
 export function createSession(email, wallet) {
   const session = {
     email: email.trim().toLowerCase(),
+    name: email.split("@")[0] || "Builder",
     wallet,
-    filed: {},
+    copies: DEMO_COPIES.map((c) => ({ ...c })),
+    deck: [],
     createdAt: Date.now(),
   };
   saveSession(session);
   return session;
 }
 
-export function fileCard(session, cardId, amount = 1) {
-  const next = {
-    ...session,
-    filed: { ...session.filed, [cardId]: (session.filed[cardId] || 0) + amount },
-  };
+export function seedDemoSession(wallet = "0xdemo00000000000000000000000000000000pt") {
+  return createSession("builder@local", wallet);
+}
+
+export function fileCopy(session, uid) {
+  const copies = session.copies.map((c) => {
+    if (c.uid !== uid) return c;
+    const def = CATALOG.find((d) => d.id === c.card);
+    if (!def?.chase) return c;
+    return { ...c, filed: true, tradable: true };
+  });
+  const next = { ...session, copies };
   saveSession(next);
   return next;
 }
 
-export function unfileCard(session, cardId) {
-  const filed = { ...session.filed };
-  delete filed[cardId];
-  const next = { ...session, filed };
+export function unfileCopy(session, uid) {
+  const copies = session.copies.map((c) => (c.uid === uid ? { ...c, filed: false } : c));
+  const next = { ...session, copies };
+  saveSession(next);
+  return next;
+}
+
+export function toggleDeck(session, uid) {
+  const inDeck = session.deck.includes(uid);
+  const deck = inDeck ? session.deck.filter((id) => id !== uid) : session.deck.length < 20 ? [...session.deck, uid] : session.deck;
+  const next = { ...session, deck };
   saveSession(next);
   return next;
 }

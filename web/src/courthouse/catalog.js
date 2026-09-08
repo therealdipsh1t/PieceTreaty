@@ -1,4 +1,3 @@
-/** Slice of the live catalog. Numbers match in-game card numbers / art slots. */
 export const CATALOG = [
   {
     id: 200,
@@ -7,9 +6,12 @@ export const CATALOG = [
     rarity: "rare",
     faction: "Wild card",
     type: "Character",
+    kind: "unit",
     chase: true,
-    copies: 1,
-    text: "His counsel is to remain silent.",
+    cost: 3,
+    atk: 1,
+    hp: 3,
+    text: "His counsel is to remain silent. Instant: cancel a pending hostile tactic unless the Stage is already Court.",
   },
   {
     id: 31,
@@ -18,9 +20,12 @@ export const CATALOG = [
     rarity: "rare",
     faction: "Wild card",
     type: "Character",
+    kind: "unit",
     chase: true,
-    copies: 1,
-    text: "The stream has notes. Several tabs of notes.",
+    cost: 4,
+    atk: 2,
+    hp: 3,
+    text: "The stream has notes. On arrival: privately inspect the opponent’s oldest hand card.",
   },
   {
     id: 1,
@@ -28,10 +33,13 @@ export const CATALOG = [
     name: "Ammon’s Razor",
     rarity: "legendary",
     faction: "Wild card",
-    type: "Investigative artifact",
+    type: "Artifact",
+    kind: "artifact",
     chase: true,
-    copies: 1,
-    text: "Occam’s, sharpened. The rest goes in the shredder.",
+    cost: 5,
+    atk: 0,
+    hp: 0,
+    text: "Occam’s, sharpened. At the start of your turn, pay 1 budget if able to retrieve your most recently discarded Protection card.",
   },
   {
     id: 113,
@@ -40,9 +48,12 @@ export const CATALOG = [
     rarity: "legendary",
     faction: "Corporate",
     type: "Institution",
+    kind: "artifact",
     chase: true,
-    copies: 1,
-    text: "The name does quite a lot of work.",
+    cost: 6,
+    atk: 0,
+    hp: 0,
+    text: "The name does quite a lot of work. Guard. Legal units you control get +1 health.",
   },
   {
     id: 39,
@@ -51,9 +62,12 @@ export const CATALOG = [
     rarity: "legendary",
     faction: "Franchisees",
     type: "Collection",
+    kind: "artifact",
     chase: true,
-    copies: 1,
-    text: "Keep the memories. Find every piece.",
+    cost: 4,
+    atk: 0,
+    hp: 0,
+    text: "Keep the memories. Find every piece. After a fight, draft an extra card.",
   },
   {
     id: 87,
@@ -62,9 +76,12 @@ export const CATALOG = [
     rarity: "legendary",
     faction: "Wild card",
     type: "Judge",
+    kind: "unit",
     chase: true,
-    copies: 1,
-    text: "The calendar is now part of the strategy.",
+    cost: 5,
+    atk: 2,
+    hp: 5,
+    text: "The calendar is now part of the strategy. Stage: Federal Court while she is in play.",
   },
   {
     id: 2,
@@ -73,9 +90,12 @@ export const CATALOG = [
     rarity: "common",
     faction: "Franchisees",
     type: "Character",
+    kind: "unit",
     chase: false,
-    copies: 4,
-    text: "Own boss. Allegedly.",
+    cost: 1,
+    atk: 1,
+    hp: 2,
+    text: "Own boss. Allegedly. Starter copy — playable, not filed.",
   },
   {
     id: 3,
@@ -84,10 +104,18 @@ export const CATALOG = [
     rarity: "common",
     faction: "Corporate",
     type: "Character",
+    kind: "unit",
     chase: false,
-    copies: 3,
+    cost: 2,
+    atk: 1,
+    hp: 2,
     text: "Just here to support the team. With a clipboard.",
   },
 ];
 
 export const CATALOG_SIZE_HINT = 600;
+
+export const byId = Object.fromEntries(CATALOG.map((c) => [c.id, c]));
+
+export const RARITY_MARK = { common: "●", rare: "◆", legendary: "★" };
+export const FINISH_LABEL = { standard: "Standard", foil: "Foil", holographic: "Holographic" };
