@@ -130,9 +130,11 @@ For production, upload `json/` (and `images/`) to IPFS/HTTPS and call `setSeries
 The default web app is no longer a wallet-first mint page. It is a **courthouse**:
 
 1. Email sign-in (no wallet on the door)
-2. Binder of playable cards
+2. Binder of playable cards using the **existing catalog art** (`/art/…` — set `VITE_CARD_ART_ORIGIN`)
 3. **File** a chase card — commons stay in-game
 4. Filed copies are ERC-1155 title deeds (`PieceTreatyFilings`)
+
+Do not generate replacement card pictures. The live collection already has illustrations (unique portraits + collector-set sheets). This demo only stamps ownership on top.
 
 ```bash
 cd web && npm run dev

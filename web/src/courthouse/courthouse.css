@@ -244,8 +244,7 @@
   display: block;
   aspect-ratio: 1;
   border-radius: 10px;
-  background-size: cover;
-  background-position: center;
+  background-color: #1c2e2c;
 }
 
 .pt-card-meta {
@@ -366,8 +365,7 @@
 
 .pt-modal-art {
   min-height: 280px;
-  background-size: cover;
-  background-position: center;
+  background-color: #1c2e2c;
   position: relative;
 }
 

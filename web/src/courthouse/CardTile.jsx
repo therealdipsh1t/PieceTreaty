@@ -1,7 +1,9 @@
+import { artStyle } from "./art";
+
 export default function CardTile({ card, filed, onOpen }) {
   return (
     <button type="button" className={`pt-card ${filed ? "is-filed" : ""}`} onClick={() => onOpen(card)}>
-      <span className="pt-card-art" style={{ backgroundImage: `url(${card.image})` }} />
+      <span className="pt-card-art" style={artStyle(card.id)} />
       <span className="pt-card-meta">
         <span className={`pt-rarity ${card.rarity}`}>{card.rarity}</span>
         <span className="pt-faction">{card.faction}</span>

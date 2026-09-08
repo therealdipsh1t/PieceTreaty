@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { artStyle } from "./art";
 
 export default function FileModal({ card, filed, busy, onClose, onFile, onUnfile }) {
   const [stamping, setStamping] = useState(false);
@@ -20,7 +21,7 @@ export default function FileModal({ card, filed, busy, onClose, onFile, onUnfile
         aria-labelledby="pt-file-title"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="pt-modal-art" style={{ backgroundImage: `url(${card.image})` }}>
+        <div className="pt-modal-art" style={artStyle(card.id)}>
           {filed && <span className="pt-wax lg">FILED</span>}
           {stamping && <span className="pt-stamp-burst" aria-hidden />}
         </div>
