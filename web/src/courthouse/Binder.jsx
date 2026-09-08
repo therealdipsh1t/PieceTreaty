@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { CATALOG, CATALOG_SIZE_HINT, byId, FINISH_LABEL } from "./catalog";
-import { clearSession, fileCopy, toggleDeck, unfileCopy } from "./session";
+import { clearSession, fileCopy, toggleDeck, unfileCopy, verifyFiler } from "./session";
 import PrintedCard from "./PrintedCard";
 import Inspect from "./Inspect";
 
@@ -20,7 +20,8 @@ export default function Binder({ session, onSession, onSignOut }) {
         <strong>Card binder</strong>
         <nav>
           <span className="suite-player">{session.name}</span>
-          <code title="Embedded wallet">{short(session.wallet)}</code>
+          <span className="member-pill">{session.memberVerified ? "Verified member" : "Guest"}</span>
+          <code title="Wallet created after email verify">{short(session.wallet)}</code>
           <button type="button" className="suite-text" onClick={() => { clearSession(); onSignOut(); }}>
             Sign out
           </button>
@@ -171,10 +172,12 @@ export default function Binder({ session, onSession, onSignOut }) {
           card={openCard}
           copies={openCopies}
           deck={session.deck}
+          filerVerified={session.filerVerified}
           onClose={() => setOpenId(null)}
           onFile={(uid) => onSession(fileCopy(session, uid))}
           onUnfile={(uid) => onSession(unfileCopy(session, uid))}
           onToggleDeck={(uid) => onSession(toggleDeck(session, uid))}
+          onVerifyFiler={(name) => onSession(verifyFiler(session, name))}
         />
       )}
     </main>

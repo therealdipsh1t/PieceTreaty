@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import Desk from "./Desk";
 import Binder from "./courthouse/Binder";
-import { loadSession, seedDemoSession } from "./courthouse/session";
+import Gate from "./courthouse/Gate";
+import { loadSession } from "./courthouse/session";
 import "./courthouse/courthouse.css";
 
 function routeFromHash() {
@@ -11,7 +12,7 @@ function routeFromHash() {
 
 export default function App() {
   const [route, setRoute] = useState(routeFromHash);
-  const [session, setSession] = useState(() => loadSession() || seedDemoSession());
+  const [session, setSession] = useState(() => loadSession());
 
   useEffect(() => {
     const onHash = () => setRoute(routeFromHash());
@@ -23,11 +24,15 @@ export default function App() {
     return <Desk />;
   }
 
+  if (!session) {
+    return <Gate onEnter={setSession} />;
+  }
+
   return (
     <Binder
       session={session}
       onSession={setSession}
-      onSignOut={() => setSession(seedDemoSession())}
+      onSignOut={() => setSession(null)}
     />
   );
 }

@@ -1,6 +1,6 @@
 import { CATALOG } from "./catalog";
 
-const KEY = "piece-treaty-session";
+const KEY = "piece-treaty-session-v2";
 
 const DEMO_COPIES = [
   { uid: "PT-200-H1", card: 200, finish: "holographic", tradable: true, filed: false },
@@ -42,23 +42,36 @@ export async function walletForEmail(email) {
 }
 
 export function createSession(email, wallet) {
+  const now = Date.now();
   const session = {
     email: email.trim().toLowerCase(),
     name: email.split("@")[0] || "Builder",
     wallet,
+    memberVerified: true,
+    filerVerified: false,
+    legalName: "",
     copies: DEMO_COPIES.map((c) => ({ ...c })),
     deck: [],
-    createdAt: Date.now(),
+    createdAt: now,
+    walletCreatedAt: now,
   };
   saveSession(session);
   return session;
 }
 
-export function seedDemoSession(wallet = "0xdemo00000000000000000000000000000000pt") {
-  return createSession("builder@local", wallet);
+export function verifyFiler(session, legalName) {
+  const next = {
+    ...session,
+    filerVerified: true,
+    legalName: legalName.trim(),
+    filerVerifiedAt: Date.now(),
+  };
+  saveSession(next);
+  return next;
 }
 
 export function fileCopy(session, uid) {
+  if (!session.filerVerified) return session;
   const copies = session.copies.map((c) => {
     if (c.uid !== uid) return c;
     const def = CATALOG.find((d) => d.id === c.card);

@@ -2,19 +2,46 @@ import { useState } from "react";
 import PrintedCard from "./PrintedCard";
 import { FINISH_LABEL } from "./catalog";
 
-export default function Inspect({ card, copies, deck, onClose, onFile, onUnfile, onToggleDeck }) {
+export default function Inspect({
+  card,
+  copies,
+  deck,
+  filerVerified,
+  onClose,
+  onFile,
+  onUnfile,
+  onToggleDeck,
+  onVerifyFiler,
+}) {
   const [active, setActive] = useState(copies[0]?.uid || null);
   const copy = copies.find((c) => c.uid === active) || copies[0];
   const [stamping, setStamping] = useState(false);
+  const [legalName, setLegalName] = useState("");
+  const [attest, setAttest] = useState(false);
+  const [verifyError, setVerifyError] = useState("");
 
   if (!card) return null;
 
   async function file() {
-    if (!copy) return;
+    if (!copy || !filerVerified) return;
     setStamping(true);
     await wait(800);
     onFile(copy.uid);
     setStamping(false);
+  }
+
+  function verify(e) {
+    e.preventDefault();
+    setVerifyError("");
+    if (legalName.trim().length < 3) {
+      setVerifyError("Put the name on this membership.");
+      return;
+    }
+    if (!attest) {
+      setVerifyError("Confirm this account is yours.");
+      return;
+    }
+    onVerifyFiler(legalName.trim());
   }
 
   const inDeck = copy ? deck.includes(copy.uid) : false;
@@ -83,7 +110,27 @@ export default function Inspect({ card, copies, deck, onClose, onFile, onUnfile,
               <p className="cv-full-rules">{card.text}</p>
             </div>
             <div className="cv-context-tools">
-              {copy && card.chase && !copy.filed && (
+              {copy && card.chase && !copy.filed && !filerVerified && (
+                <form className="filer-verify" onSubmit={verify}>
+                  <p>
+                    You can play this copy now. Filing puts it on-chain, so we need a named member — not a
+                    passport scan in this demo, just a person attached to the email.
+                  </p>
+                  <label>
+                    Name on this membership
+                    <input value={legalName} onChange={(e) => setLegalName(e.target.value)} required />
+                  </label>
+                  <label className="filer-attest">
+                    <input type="checkbox" checked={attest} onChange={(e) => setAttest(e.target.checked)} />
+                    This email account is mine. I am a real person, not a throwaway.
+                  </label>
+                  {verifyError && <p className="pt-alert">{verifyError}</p>}
+                  <button type="submit" className="cv-file-btn">
+                    Verify me to file
+                  </button>
+                </form>
+              )}
+              {copy && card.chase && !copy.filed && filerVerified && (
                 <button type="button" className="cv-file-btn" onClick={file} disabled={stamping}>
                   {stamping ? "Stamping…" : "File this copy"}
                 </button>
