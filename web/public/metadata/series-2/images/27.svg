@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Legally Mime #27">
+  <defs>
+    <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5ec8ff" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#0c1824" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="spot" cx="50%" cy="35%" r="55%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#0c1824" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="400" height="400" fill="#0c1824"/>
+  <rect width="400" height="400" fill="url(#glow)"/>
+  <rect width="400" height="400" fill="url(#spot)"/>
+  
+  <rect x="0" y="320" width="400" height="80" fill="#142838"/>
+  <line x1="0" y1="320" x2="400" y2="320" stroke="#5ec8ff" stroke-width="2" opacity="0.4"/>
+
+  <!-- body -->
+  <ellipse cx="200" cy="340" rx="70" ry="28" fill="#3a2a4a" stroke="#7c6af7" stroke-width="3"/>
+  <rect x="145" y="300" width="110" height="55" rx="8" fill="#3a2a4a" stroke="#7c6af7" stroke-width="3"/>
+  
+
+  <!-- neck -->
+  <rect x="185" y="275" width="30" height="30" fill="#f2e6d8"/>
+
+  <!-- head -->
+  <circle cx="200" cy="230" r="58" fill="#f7efe4" stroke="#111" stroke-width="3"/>
+  <!-- mime white face oval -->
+  <ellipse cx="200" cy="235" rx="48" ry="50" fill="#ffffff" opacity="0.92"/>
+
+  <!-- beret / hair mark -->
+  <path d="M150 200 Q200 155 250 200" fill="#7c6af7" opacity="0.9"/>
+  <ellipse cx="200" cy="188" rx="42" ry="16" fill="#7c6af7"/>
+
+  
+    <ellipse cx="168" cy="222" rx="9" ry="11" fill="#111"/>
+    <ellipse cx="232" cy="222" rx="9" ry="11" fill="#111"/>
+    <circle cx="170" cy="219" r="2.5" fill="#fff"/>
+    <circle cx="234" cy="219" r="2.5" fill="#fff"/>
+  
+  <line x1="180" y1="268" x2="220" y2="268" stroke="#111" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- rosy cheeks -->
+  <circle cx="160" cy="245" r="8" fill="#f5a9b8" opacity="0.35"/>
+  <circle cx="240" cy="245" r="8" fill="#f5a9b8" opacity="0.35"/>
+
+  
+        <g transform="translate(255,250)">
+          <rect x="0" y="10" width="48" height="36" rx="4" fill="#3d2914" stroke="#5ec8ff" stroke-width="2"/>
+          <rect x="18" y="4" width="12" height="10" rx="2" fill="#5a3d1a"/>
+          <line x1="0" y1="24" x2="48" y2="24" stroke="#5ec8ff" stroke-width="1.5"/>
+        </g>
+
+  <!-- frame + labels -->
+  <rect x="12" y="12" width="376" height="376" fill="none" stroke="#5ec8ff" stroke-width="2" opacity="0.5" rx="12"/>
+  <text x="24" y="40" fill="#5ec8ff" font-family="ui-monospace, monospace" font-size="14" font-weight="600">#27</text>
+  <text x="376" y="40" text-anchor="end" fill="#4de1c1" font-family="ui-monospace, monospace" font-size="12">Uncommon</text>
+  <text x="200" y="382" text-anchor="middle" fill="#ffffff" opacity="0.55" font-family="ui-monospace, monospace" font-size="11">Series 2 - Legal Briefs</text>
+</svg>

@@ -1,0 +1,12 @@
+{
+  "name": "Legally Mime",
+  "symbol": "LMIME",
+  "description": "A multi-series on-chain mime collection on Monad. Silent defendants, theatrical briefs, and legally dubious expressions - drop by drop.",
+  "external_link": "https://legallymime.example",
+  "seller_fee_basis_points": 500,
+  "fee_recipient": "0x0000000000000000000000000000000000000000",
+  "chain": {
+    "testnet": { "id": 10143, "name": "Monad Testnet" },
+    "mainnet": { "id": 143, "name": "Monad" }
+  }
+}

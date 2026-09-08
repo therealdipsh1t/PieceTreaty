@@ -1,0 +1,23 @@
+{
+  "seriesId": 1,
+  "slug": "series-1-classics",
+  "name": "Series 1 - Classics",
+  "startTokenId": 1,
+  "endTokenId": 20,
+  "count": 20,
+  "publishBase": "http://localhost:5173/metadata/series-1",
+  "contractBaseURI": "http://localhost:5173/metadata/series-1/json/",
+  "rarityCounts": {
+    "Rare": 4,
+    "Common": 11,
+    "Uncommon": 4,
+    "Legendary": 1
+  },
+  "generatedAt": "2026-07-28T15:09:24.799Z",
+  "note": "tokenURI = baseURI + tokenId + '.json'. Point baseURI at the hosted json/ directory (with trailing slash).",
+  "files": {
+    "images": "images/{id}.svg",
+    "metadata": "json/{id}.json",
+    "preview": "_collection-preview.html"
+  }
+}

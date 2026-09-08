@@ -1,0 +1,45 @@
+{
+  "name": "Legally Mime #28",
+  "description": "Second series: denser legal energy, night-court vibes, and brief-case swagger. Token IDs continue after Series 1.\n\nSeries: Series 2 - Legal Briefs",
+  "image": "http://localhost:5173/metadata/series-2/images/28.svg",
+  "external_url": "https://legallymime.example/token/28",
+  "background_color": "0b0a12",
+  "attributes": [
+    {
+      "trait_type": "Series",
+      "value": "Series 2 - Legal Briefs"
+    },
+    {
+      "trait_type": "Series ID",
+      "value": 2,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Night Court"
+    },
+    {
+      "trait_type": "Outfit",
+      "value": "Judge Robes (Unofficial)"
+    },
+    {
+      "trait_type": "Prop",
+      "value": "Legal Brief"
+    },
+    {
+      "trait_type": "Expression",
+      "value": "Cross-Examine"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Common"
+    }
+  ],
+  "properties": {
+    "series_id": 2,
+    "series_slug": "series-2-legal-briefs",
+    "token_id": 28,
+    "collection": "Legally Mime",
+    "generator": "legally-mime-metadata@1.0.0"
+  }
+}

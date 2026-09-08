@@ -1,0 +1,8 @@
+{
+  "name": "Legally Mime",
+  "description": "A multi-series on-chain mime collection on Monad. Silent defendants, theatrical briefs, and legally dubious expressions - drop by drop.",
+  "image": "http://localhost:5173/metadata/series-1/images/1.svg",
+  "external_link": "https://legallymime.example",
+  "seller_fee_basis_points": 500,
+  "fee_recipient": "0x0000000000000000000000000000000000000000"
+}

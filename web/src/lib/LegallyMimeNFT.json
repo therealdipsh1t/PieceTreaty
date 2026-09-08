@@ -1,0 +1,180 @@
+{
+  "address": "",
+  "chainId": 10143,
+  "network": "monadTestnet",
+  "abi": [
+    {
+      "inputs": [{ "internalType": "address", "name": "initialOwner", "type": "address" }],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "seriesId", "type": "uint256" },
+        { "indexed": false, "internalType": "string", "name": "name", "type": "string" },
+        { "indexed": false, "internalType": "uint256", "name": "maxSupply", "type": "uint256" },
+        { "indexed": false, "internalType": "uint256", "name": "mintPrice", "type": "uint256" },
+        { "indexed": false, "internalType": "uint256", "name": "maxPerWallet", "type": "uint256" },
+        { "indexed": false, "internalType": "bool", "name": "active", "type": "bool" }
+      ],
+      "name": "SeriesCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        { "indexed": true, "internalType": "uint256", "name": "seriesId", "type": "uint256" },
+        { "indexed": true, "internalType": "address", "name": "to", "type": "address" },
+        { "indexed": true, "internalType": "uint256", "name": "tokenId", "type": "uint256" },
+        { "indexed": false, "internalType": "uint256", "name": "pricePaid", "type": "uint256" }
+      ],
+      "name": "Minted",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        { "internalType": "string", "name": "name_", "type": "string" },
+        { "internalType": "string", "name": "baseURI_", "type": "string" },
+        { "internalType": "uint256", "name": "maxSupply_", "type": "uint256" },
+        { "internalType": "uint256", "name": "mintPrice_", "type": "uint256" },
+        { "internalType": "uint256", "name": "maxPerWallet_", "type": "uint256" },
+        { "internalType": "bool", "name": "active_", "type": "bool" }
+      ],
+      "name": "createSeries",
+      "outputs": [{ "internalType": "uint256", "name": "seriesId", "type": "uint256" }],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "seriesId", "type": "uint256" }],
+      "name": "getSeries",
+      "outputs": [
+        { "internalType": "string", "name": "name_", "type": "string" },
+        { "internalType": "string", "name": "baseURI_", "type": "string" },
+        { "internalType": "uint256", "name": "maxSupply_", "type": "uint256" },
+        { "internalType": "uint256", "name": "minted_", "type": "uint256" },
+        { "internalType": "uint256", "name": "mintPrice_", "type": "uint256" },
+        { "internalType": "uint256", "name": "maxPerWallet_", "type": "uint256" },
+        { "internalType": "bool", "name": "active_", "type": "bool" },
+        { "internalType": "bool", "name": "exists_", "type": "bool" }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "seriesCount",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "seriesId", "type": "uint256" },
+        { "internalType": "uint256", "name": "quantity", "type": "uint256" }
+      ],
+      "name": "mint",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "seriesId", "type": "uint256" },
+        { "internalType": "address", "name": "to", "type": "address" },
+        { "internalType": "uint256", "name": "quantity", "type": "uint256" }
+      ],
+      "name": "ownerMint",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }],
+      "name": "tokenSeries",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }],
+      "name": "balanceOf",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "address", "name": "owner", "type": "address" },
+        { "internalType": "uint256", "name": "index", "type": "uint256" }
+      ],
+      "name": "tokenOfOwnerByIndex",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [{ "internalType": "uint256", "name": "tokenId", "type": "uint256" }],
+      "name": "tokenURI",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "seriesId", "type": "uint256" },
+        { "internalType": "address", "name": "", "type": "address" }
+      ],
+      "name": "mintedPerWallet",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [{ "internalType": "address", "name": "", "type": "address" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "withdraw",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        { "internalType": "uint256", "name": "seriesId", "type": "uint256" },
+        { "internalType": "bool", "name": "active_", "type": "bool" }
+      ],
+      "name": "setSeriesActive",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ]
+}

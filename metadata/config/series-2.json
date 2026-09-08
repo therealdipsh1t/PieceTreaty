@@ -1,0 +1,56 @@
+{
+  "seriesId": 2,
+  "slug": "series-2-legal-briefs",
+  "name": "Series 2 - Legal Briefs",
+  "description": "Second series: denser legal energy, night-court vibes, and brief-case swagger. Token IDs continue after Series 1.",
+  "startTokenId": 21,
+  "count": 10,
+  "maxSupplyHint": 500,
+  "imageMode": "svg",
+  "imageUriTemplate": "{publishBase}/images/{id}.svg",
+  "externalUrlTemplate": "https://legallymime.example/token/{id}",
+  "publishBase": "http://localhost:5173/metadata/series-2",
+  "attributes": {
+    "Background": [
+      { "value": "Night Court", "weight": 30 },
+      { "value": "Law Library", "weight": 25 },
+      { "value": "Rooftop Deposition", "weight": 20 },
+      { "value": "Neon Alley", "weight": 15 },
+      { "value": "Evidence Locker", "weight": 10 }
+    ],
+    "Outfit": [
+      { "value": "Barrister Wig", "weight": 25 },
+      { "value": "Paralegal Chic", "weight": 25 },
+      { "value": "Shadow Counsel", "weight": 20 },
+      { "value": "Mime Clerk", "weight": 20 },
+      { "value": "Judge Robes (Unofficial)", "weight": 10 }
+    ],
+    "Prop": [
+      { "value": "Legal Brief", "weight": 30 },
+      { "value": "Stamp of Approval", "weight": 20 },
+      { "value": "Exhibit A", "weight": 20 },
+      { "value": "Pocket Constitution", "weight": 15 },
+      { "value": "Contempt Citation", "weight": 15 }
+    ],
+    "Expression": [
+      { "value": "Objection!", "weight": 25 },
+      { "value": "Sustained Silence", "weight": 25 },
+      { "value": "Cross-Examine", "weight": 20 },
+      { "value": "Overruled Smile", "weight": 18 },
+      { "value": "Rest My Case", "weight": 12 }
+    ],
+    "Rarity": [
+      { "value": "Common", "weight": 50 },
+      { "value": "Uncommon", "weight": 30 },
+      { "value": "Rare", "weight": 15 },
+      { "value": "Legendary", "weight": 5 }
+    ]
+  },
+  "palette": {
+    "Night Court": { "bg": "#0e0c1a", "accent": "#9b7bff", "floor": "#1a1630" },
+    "Law Library": { "bg": "#1a1410", "accent": "#d4a574", "floor": "#2a2018" },
+    "Rooftop Deposition": { "bg": "#0c1824", "accent": "#5ec8ff", "floor": "#142838" },
+    "Neon Alley": { "bg": "#140818", "accent": "#ff4d9a", "floor": "#220e28" },
+    "Evidence Locker": { "bg": "#121410", "accent": "#a8c040", "floor": "#1e2218" }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "legally-mime-metadata",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Art + metadata scaffolding for Legally Mime series",
+  "scripts": {
+    "generate": "node scripts/generate-series.mjs",
+    "generate:s1": "node scripts/generate-series.mjs --config config/series-1.json",
+    "generate:s2": "node scripts/generate-series.mjs --config config/series-2.json",
+    "generate:all": "npm run generate:s1 && npm run generate:s2",
+    "preview": "node scripts/serve-preview.mjs",
+    "sync-web": "node scripts/sync-to-web.mjs"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "seriesId": 2,
+  "slug": "series-2-legal-briefs",
+  "name": "Series 2 - Legal Briefs",
+  "startTokenId": 21,
+  "endTokenId": 30,
+  "count": 10,
+  "publishBase": "http://localhost:5173/metadata/series-2",
+  "contractBaseURI": "http://localhost:5173/metadata/series-2/json/",
+  "rarityCounts": {
+    "Rare": 4,
+    "Uncommon": 4,
+    "Common": 2
+  },
+  "generatedAt": "2026-07-28T15:09:25.188Z",
+  "note": "tokenURI = baseURI + tokenId + '.json'. Point baseURI at the hosted json/ directory (with trailing slash).",
+  "files": {
+    "images": "images/{id}.svg",
+    "metadata": "json/{id}.json",
+    "preview": "_collection-preview.html"
+  }
+}

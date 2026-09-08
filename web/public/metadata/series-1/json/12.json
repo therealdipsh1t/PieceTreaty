@@ -1,0 +1,45 @@
+{
+  "name": "Legally Mime #12",
+  "description": "The original Legally Mime drop. Courtroom silence, sidewalk drama, and classic white-face energy.\n\nSeries: Series 1 - Classics",
+  "image": "http://localhost:5173/metadata/series-1/images/12.svg",
+  "external_url": "https://legallymime.example/token/12",
+  "background_color": "0b0a12",
+  "attributes": [
+    {
+      "trait_type": "Series",
+      "value": "Series 1 - Classics"
+    },
+    {
+      "trait_type": "Series ID",
+      "value": 1,
+      "display_type": "number"
+    },
+    {
+      "trait_type": "Background",
+      "value": "Sidewalk"
+    },
+    {
+      "trait_type": "Outfit",
+      "value": "Classic Mime"
+    },
+    {
+      "trait_type": "Prop",
+      "value": "Invisible Box"
+    },
+    {
+      "trait_type": "Expression",
+      "value": "Silent Shock"
+    },
+    {
+      "trait_type": "Rarity",
+      "value": "Rare"
+    }
+  ],
+  "properties": {
+    "series_id": 1,
+    "series_slug": "series-1-classics",
+    "token_id": 12,
+    "collection": "Legally Mime",
+    "generator": "legally-mime-metadata@1.0.0"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "seriesId": 1,
+  "slug": "series-1-classics",
+  "name": "Series 1 - Classics",
+  "description": "The original Legally Mime drop. Courtroom silence, sidewalk drama, and classic white-face energy.",
+  "startTokenId": 1,
+  "count": 20,
+  "maxSupplyHint": 1000,
+  "imageMode": "svg",
+  "imageUriTemplate": "{publishBase}/images/{id}.svg",
+  "externalUrlTemplate": "https://legallymime.example/token/{id}",
+  "publishBase": "http://localhost:5173/metadata/series-1",
+  "attributes": {
+    "Background": [
+      { "value": "Courtroom", "weight": 25 },
+      { "value": "Jail Stripe", "weight": 20 },
+      { "value": "Stage Lights", "weight": 20 },
+      { "value": "Notary Desk", "weight": 20 },
+      { "value": "Sidewalk", "weight": 15 }
+    ],
+    "Outfit": [
+      { "value": "Classic Mime", "weight": 30 },
+      { "value": "Legal Robe", "weight": 20 },
+      { "value": "Pinstripe Suit", "weight": 20 },
+      { "value": "Tuxedo", "weight": 15 },
+      { "value": "High-Vis Vest", "weight": 15 }
+    ],
+    "Prop": [
+      { "value": "Invisible Box", "weight": 25 },
+      { "value": "Gavel", "weight": 20 },
+      { "value": "Briefcase", "weight": 20 },
+      { "value": "Red Balloon", "weight": 15 },
+      { "value": "Subpoena Scroll", "weight": 12 },
+      { "value": "Golden Scale", "weight": 8 }
+    ],
+    "Expression": [
+      { "value": "Silent Shock", "weight": 25 },
+      { "value": "Side-Eye", "weight": 25 },
+      { "value": "Smug", "weight": 20 },
+      { "value": "Plead", "weight": 18 },
+      { "value": "Mic Drop", "weight": 12 }
+    ],
+    "Rarity": [
+      { "value": "Common", "weight": 55 },
+      { "value": "Uncommon", "weight": 28 },
+      { "value": "Rare", "weight": 12 },
+      { "value": "Legendary", "weight": 5 }
+    ]
+  },
+  "palette": {
+    "Courtroom": { "bg": "#1a1630", "accent": "#7c6af7", "floor": "#2a2444" },
+    "Jail Stripe": { "bg": "#121212", "accent": "#e8e8e8", "floor": "#1c1c1c" },
+    "Stage Lights": { "bg": "#1c1028", "accent": "#f0b429", "floor": "#2a1838" },
+    "Notary Desk": { "bg": "#14201c", "accent": "#4de1c1", "floor": "#1c2e28" },
+    "Sidewalk": { "bg": "#1a1e28", "accent": "#8ab4ff", "floor": "#2a3040" }
+  }
+}
